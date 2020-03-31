@@ -39,5 +39,26 @@ router.get('/getdata', function(req, res) {
 
 });
 
+/* ADD home page. */
+router.get('/add', function(req, res) {
+  res.render("add",{});
+});
+
+router.post('/add', function(req, res) {
+  let product_name = req.body.product_name;
+  let product_price = req.body.product_price;
+  let image = req.body.product_image;
+  let sql = "insert into product_info (product_name,product_price,image) values('"+product_name+"','"+product_price+"','"+image+"')";
+  pool.query(sql,(err,response) => {
+    if(err){
+      res.send(err);
+    }
+    else{
+      res.send("update thanh cong")
+    }
+  })
+  // res.send("nhan duoc du lieu "+ product_name + product_price + image);
+});
+
 
 module.exports = router;
