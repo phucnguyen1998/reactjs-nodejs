@@ -4,12 +4,12 @@ class componentName extends Component {
 
     render() {
         return (
-            <div className="col-4 mt-2">
+            <div className="col mt-2">
                 <div className="card text-left">
                     <img className="card-img-top" src={this.props.image} alt="" />
                     <div className="card-body d-flex">
-                    <h4 className="card-title m-auto">{this.props.product_name}</h4>
-                    <p className="card-text m-auto">{this.props.product_price}</p>
+                    <b className="m-auto">{this.props.product_name}</b>
+                    <i className="m-auto">{this.props.product_price}</i>
                     </div>
                 </div>
             </div>  
