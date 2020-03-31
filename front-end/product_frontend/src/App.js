@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import HeadTitle from './components/HeadTitle';
 import ProductInfo from './components/ProductInfo';
-import axios from 'axios'
+import axios from 'axios';
+import AddData from './components/AddData';
 
 
 const getProductData = (path) => {
@@ -22,7 +23,8 @@ class App extends Component {
   
   componentWillMount() {
     if(this.state.data === null){
-      getProductData('http://localhost:4000/getdata').then((res) => {
+      getProductData('http://localhost:4000/getdata')
+      .then((res) => {
         this.setState({
           data: res
         })
@@ -44,6 +46,7 @@ class App extends Component {
     return (
       <div className="App">
         <HeadTitle/>
+        <AddData/>
         <div className="container">
           <div className="row">
             {this.printData()}
